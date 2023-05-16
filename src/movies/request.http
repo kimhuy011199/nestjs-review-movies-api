@@ -1,0 +1,26 @@
+### Create movie
+
+POST http://localhost:3000/movies
+Content-Type: application/json
+
+{
+  "title": "Fight Club",
+  "genre": "Drama",
+  "duration": 139,
+  "year": 1999
+}
+
+
+### Delete movie
+
+DELETE http://localhost:3000/movies/5
+
+
+### Get movie by id
+
+GET http://localhost:3000/movies/5
+
+
+### Get movies by conditions
+
+GET http://localhost:3000/movies?fromYear=2000&toYear=2020
