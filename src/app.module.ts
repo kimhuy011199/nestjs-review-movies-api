@@ -8,6 +8,7 @@ import { MoviesModule } from './movies/movies.module';
 import { Movie } from './movies/movie.entity';
 import { ReviewsModule } from './reviews/reviews.module';
 import { Review } from './reviews/review.entity';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -20,6 +21,7 @@ import { Review } from './reviews/review.entity';
     UsersModule,
     MoviesModule,
     ReviewsModule,
+    AuthModule,
   ],
   controllers: [AppController],
   providers: [AppService],
