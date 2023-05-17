@@ -11,7 +11,7 @@ import { JWT_SECRET } from 'src/shared/constants';
     JwtModule.register({
       global: true,
       secret: JWT_SECRET,
-      signOptions: { expiresIn: '60s' },
+      signOptions: { expiresIn: '60000s' },
     }),
   ],
   controllers: [AuthController],

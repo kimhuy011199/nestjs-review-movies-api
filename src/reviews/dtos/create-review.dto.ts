@@ -10,8 +10,5 @@ export class CreateReviewDto {
   rating: number;
 
   @IsNumber()
-  userId: number;
-
-  @IsNumber()
   movieId: number;
 }

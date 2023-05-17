@@ -1,11 +1,11 @@
 ### Create review
 
 POST http://localhost:3000/reviews
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJ1c2VyQGdtYWlsLmNvbSIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNjg0MzI4ODcwLCJleHAiOjE2ODQzODg4NzB9.8NeviA4lhSdl6uClHvL-DEsA9o0fJBKv0HKPxtGUIN0
 Content-Type: application/json
 
 {
   "content": "Good movie",
   "rating": 5,
-  "userId": 1,
   "movieId": 1
 }

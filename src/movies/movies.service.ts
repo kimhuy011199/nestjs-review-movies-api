@@ -18,7 +18,7 @@ export class MoviesService {
     const movie = await this.repo.findOneBy({ id: +id });
 
     if (!movie) {
-      throw new NotFoundException();
+      throw new NotFoundException('Movie not found');
     }
 
     return movie;

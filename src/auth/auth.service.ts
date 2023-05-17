@@ -49,7 +49,7 @@ export class AuthService {
     // Check if user is existed
     const user = await this.userSevice.findOne(email);
     if (!user) {
-      throw new NotFoundException();
+      throw new NotFoundException('User not found');
     }
 
     // Get salt and hash password
@@ -67,11 +67,8 @@ export class AuthService {
   }
 
   async generateAccessToken(user: User) {
-    const payload = {
-      sub: user.id,
-      email: user.email,
-      role: user.role,
-    };
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const { password, ...payload } = user;
     return {
       access_token: await this.jwtService.signAsync(payload),
     };
