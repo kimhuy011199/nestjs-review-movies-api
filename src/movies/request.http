@@ -1,6 +1,7 @@
 ### Create movie
 
 POST http://localhost:3000/movies
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImVtYWlsIjoidXNlckBnbWFpbC5jb20iLCJyb2xlIjoidXNlciIsImlhdCI6MTY4NDMyMzIwMCwiZXhwIjoxNjg0MzIzMjYwfQ.cYX4-y_FwNGhxO4aNeM0fdWc8mRmZ6kClYMhWSZj7KI
 Content-Type: application/json
 
 {

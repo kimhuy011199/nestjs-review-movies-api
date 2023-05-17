@@ -4,7 +4,7 @@ POST http://localhost:3000/auth/signup
 Content-Type: application/json
 
 {
-  "email": "huy@gmail.com",
+  "email": "user@gmail.com",
   "password": "123"
 }
 
@@ -15,7 +15,7 @@ POST http://localhost:3000/auth/signin
 Content-Type: application/json
 
 {
-  "email": "huy@gmail.com",
+  "email": "user@gmail.com",
   "password": "123"
 }
 
@@ -23,4 +23,4 @@ Content-Type: application/json
 ### Get information
 
 GET http://localhost:3000/auth/profile
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImVtYWlsIjoiaHV5QGdtYWlsLmNvbSIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNjg0MjQ3Nzg4LCJleHAiOjE2ODQyNDc4NDh9.CIvKIH0qP3-Q-iiekUCl8rvpFqFl_4a6WaQBthupvF8
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImVtYWlsIjoidXNlckBnbWFpbC5jb20iLCJyb2xlIjoidXNlciIsImlhdCI6MTY4NDMyMzEyNCwiZXhwIjoxNjg0MzIzMTg0fQ.9yLNOG_HdmMJD7y56u3nPl-9Ut0d6EifI8d_42ciKY8
