@@ -37,6 +37,8 @@ export class MoviesController {
     return this.movieService.findOneAndJoinColumn(id);
   }
 
+  @UseGuards(AuthenGuard, RolesGuard)
+  @Roles(Role.Admin)
   @Delete('/:id')
   delete(@Param('id') id: string) {
     return this.movieService.delete(id);

@@ -10,9 +10,6 @@ import { AuthService } from './auth.service';
 import { SignInUserDto } from './dtos/signin-user.dto';
 import { SignUpUserDto } from './dtos/signup-user.dto';
 import { AuthenGuard } from './guards/authen.guard';
-import { Roles } from './decorators/roles.decorator';
-import { Role } from 'src/shared/enum/role.enum';
-import { RolesGuard } from './guards/roles.guard';
 
 @Controller('auth')
 export class AuthController {
@@ -28,8 +25,7 @@ export class AuthController {
     return this.authService.findOne(body);
   }
 
-  @UseGuards(AuthenGuard, RolesGuard)
-  @Roles(Role.User)
+  @UseGuards(AuthenGuard)
   @Get('profile')
   getProfile(@Request() req) {
     return req.user;
