@@ -33,13 +33,13 @@ export class MoviesService {
       .getMany();
   }
 
-  async find({ title, genre, fromYear, toYear }: GetMoviesDto) {
+  async find({ title, genre, from, to }: GetMoviesDto) {
     return this.repo
       .createQueryBuilder()
       .where(title ? 'title = :title' : '1=1', { title })
       .andWhere(genre ? 'genre = :genre' : '1=1', { genre })
-      .andWhere(fromYear ? 'year >= :fromYear' : '1=1', { fromYear })
-      .andWhere(toYear ? 'year <= :toYear' : '1=1', { toYear })
+      .andWhere(from ? 'year >= :from' : '1=1', { from })
+      .andWhere(to ? 'year <= :to' : '1=1', { to })
       .orderBy('year', 'DESC')
       .getMany();
   }

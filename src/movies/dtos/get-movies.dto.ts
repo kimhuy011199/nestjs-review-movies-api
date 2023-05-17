@@ -13,10 +13,10 @@ export class GetMoviesDto {
   @Transform(({ value }) => +value)
   @IsOptional()
   @IsNumber()
-  fromYear: number;
+  from: number;
 
   @Transform(({ value }) => +value)
   @IsOptional()
   @IsNumber()
-  toYear: number;
+  to: number;
 }
