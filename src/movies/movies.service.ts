@@ -25,12 +25,22 @@ export class MoviesService {
   }
 
   async findOneAndJoinColumn(id: string) {
-    return this.repo
+    const movie = await this.repo
       .createQueryBuilder('movie')
-      .leftJoinAndSelect('movie.reviews', 'review')
-      .where('id = :id', { id: +id })
-      .andWhere('review.approved = :approved', { approved: true })
-      .getMany();
+      .leftJoinAndSelect(
+        'movie.reviews',
+        'review',
+        'review.approved = :approved',
+        { approved: true },
+      )
+      .where('movie.id = :id', { id: +id })
+      .getOne();
+
+    if (!movie) {
+      throw new NotFoundException('Movie not found');
+    }
+
+    return movie;
   }
 
   async find({ title, genre, from, to }: GetMoviesDto) {

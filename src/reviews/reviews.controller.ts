@@ -14,6 +14,7 @@ import { CurrentUser } from 'src/users/decorators/current-user.decorator';
 import { User } from 'src/users/user.entity';
 import { Roles } from 'src/auth/decorators/roles.decorator';
 import { Role } from 'src/shared/enum/role.enum';
+import { ApproveReviewDto } from './dtos/approve-review.dto';
 
 @Controller('reviews')
 export class ReviewsController {
@@ -28,7 +29,7 @@ export class ReviewsController {
   @UseGuards(AuthenGuard)
   @Roles(Role.Staff)
   @Patch('/:id')
-  approveReview(@Body() body: { approved: boolean }, @Param('id') id: string) {
+  approveReview(@Body() body: ApproveReviewDto, @Param('id') id: string) {
     return this.reviewService.update(id, body.approved);
   }
 

@@ -13,7 +13,7 @@ export class UsersService {
     const user = this.repo.create({
       email,
       password,
-      role: Role.User,
+      role: Role.Admin,
     });
 
     return this.repo.save(user);

@@ -1,23 +1,17 @@
 import { Module } from '@nestjs/common';
-import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { UsersModule } from './users/users.module';
-import { User } from './users/user.entity';
 import { MoviesModule } from './movies/movies.module';
-import { Movie } from './movies/movie.entity';
 import { ReviewsModule } from './reviews/reviews.module';
-import { Review } from './reviews/review.entity';
 import { AuthModule } from './auth/auth.module';
+import { DatabaseModule } from './database/database.module';
+import { ConfigModule } from '@nestjs/config';
 
 @Module({
   imports: [
-    TypeOrmModule.forRoot({
-      type: 'sqlite',
-      database: 'db.sqlite',
-      entities: [User, Movie, Review],
-      synchronize: true,
-    }),
+    ConfigModule.forRoot(),
+    DatabaseModule,
     UsersModule,
     MoviesModule,
     ReviewsModule,
