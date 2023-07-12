@@ -34,8 +34,8 @@ export class ReviewsController {
     return this.reviewService.update(id, body.approved);
   }
 
-  @UseGuards(AuthenGuard)
-  @Roles(Role.Admin)
+  @UseGuards(AuthenGuard, RolesGuard)
+  @Roles(Role.Staff, Role.Admin)
   @Delete('/:id')
   delete(@Param('id') id: string) {
     return this.reviewService.delete(id);
