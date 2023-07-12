@@ -15,6 +15,7 @@ import { User } from 'src/users/user.entity';
 import { Roles } from 'src/auth/decorators/roles.decorator';
 import { Role } from 'src/shared/enum/role.enum';
 import { ApproveReviewDto } from './dtos/approve-review.dto';
+import { RolesGuard } from 'src/auth/guards/roles.guard';
 
 @Controller('reviews')
 export class ReviewsController {
@@ -26,8 +27,8 @@ export class ReviewsController {
     return this.reviewService.create(body, user);
   }
 
-  @UseGuards(AuthenGuard)
-  @Roles(Role.Staff)
+  @UseGuards(AuthenGuard, RolesGuard)
+  @Roles(Role.Staff, Role.Admin)
   @Patch('/:id')
   approveReview(@Body() body: ApproveReviewDto, @Param('id') id: string) {
     return this.reviewService.update(id, body.approved);
